@@ -1,5 +1,5 @@
 import users from '../models/users.js'
-// import admins from '../models/admins.js'
+import admins from '../models/admins.js'
 import staffs from '../models/staffs.js'
 import products from '../models/products.js'
 import bcrypt from 'bcrypt'
@@ -23,6 +23,8 @@ export const register = async (req, res) => {
   req.body.password = bcrypt.hashSync(password, 10)
   try {
     await users.create(req.body)
+    // await staffs.create(req.body)
+    // await admins.create(req.body)
     res.status(200).send({ success: true, message: '' })
   } catch (error) {
     if (error.name === 'ValidationError') {
