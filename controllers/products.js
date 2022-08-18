@@ -67,12 +67,25 @@ export const getTypeProducts = async (req, res) => {
 
 export const editProduct = async (req, res) => {
   try {
+    // await products.findOneAndUpdate(
+    //   { _id: req.params.id },
+    //   {
+    //     $set: {
+    //       image: []
+    //     }
+    //   }, { new: true })
     const data = {
       name: req.body.name,
       price: req.body.price,
       description: req.body.description,
       sell: req.body.sell,
-      category: req.body.category
+      // image: req.files?.map(file => {
+      //   return file.path
+      // }) || [],
+      category: req.body.category,
+      color: req.body.color,
+      size: req.body.size,
+      classify: req.body.classify
     }
     // if (req.files) data.image = req.file.path
     const result = await products.findByIdAndUpdate(req.params.id, data, { new: true })

@@ -19,6 +19,6 @@ router.get('/', getProducts)
 router.post('/genre', content('application/json'), getTypeProducts)
 router.get('/all', auth.jwt, admin, getAllProducts)
 router.get('/:id', getProduct)
+// router.patch('/:id', content('multipart/form-data'), auth.jwt, admin, upload, editProduct)
 router.patch('/:id', content('multipart/form-data'), auth.jwt, admin, upload, editProduct)
-
 export default router
