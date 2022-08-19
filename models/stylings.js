@@ -1,6 +1,12 @@
 import mongoose from 'mongoose'
 
 const schema = new mongoose.Schema({
+  name: {
+    type: String
+  },
+  description: {
+    type: String
+  },
   staff: {
     type: mongoose.ObjectId,
     ref: 'staffs',

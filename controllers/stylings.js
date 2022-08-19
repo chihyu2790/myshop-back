@@ -7,7 +7,13 @@ export const createStylings = async (req, res) => {
     // if (!canCheckout) {
     //   return res.status(400).send({ success: false, message: '包含下架商品' })
     // }
-    const result = await stylings.create({ staff: req.user._id, image: req.file.path, products: req.user.cart })
+    const result = await stylings.create({
+      name: req.body.name,
+      description: req.body.description,
+      staff: req.user._id,
+      image: req.file.path,
+      products: req.user.cart
+    })
     req.user.cart = []
     await req.user.save()
     res.status(200).send({ success: true, message: '', result: result._id })
