@@ -32,7 +32,11 @@ const schema = new mongoose.Schema({
         required: [true, '缺少數量欄位']
       }
     }
-  ]
+  ],
+  date: {
+    type: Date,
+    default: Date.now()
+  }
 }, { versionKey: false })
 
 export default mongoose.model('stylings', schema)
