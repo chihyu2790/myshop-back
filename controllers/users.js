@@ -182,6 +182,29 @@ export const editUser = async (req, res) => {
   }
 }
 
+export const editUsers = async (req, res) => {
+  try {
+    await users.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: {
+          // $ 代表符合陣列搜尋條件的索引
+          account: req.body.account,
+          name: req.body.name,
+          sex: req.body.sex,
+          birthday: req.body.birthday,
+          address: req.body.address,
+          phone: req.body.phone,
+          email: req.body.email
+        }
+      }
+    )
+    res.status(200).send({ success: true, message: '' })
+  } catch (error) {
+    res.status(500).send({ success: false, message: '伺服器錯誤' })
+  }
+}
+
 export const editItemsCart = async (req, res) => {
   try {
     await users.findOneAndUpdate(

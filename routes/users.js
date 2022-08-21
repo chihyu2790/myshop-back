@@ -10,6 +10,7 @@ import {
   extend,
   getUser,
   editUser,
+  editUsers,
   addCart,
   editCart,
   getCart,
@@ -26,6 +27,7 @@ router.delete('/logout', auth.jwt, logout)
 router.post('/extend', auth.jwt, extend)
 router.get('/', auth.jwt, getUser)
 router.patch('/', content('application/json'), auth.jwt, editUser)
+router.patch('/:id', content('application/json'), auth.jwt, admin, editUsers)
 router.get('/all', auth.jwt, admin, getAllUsers)
 router.delete('/:id', auth.jwt, admin, deleteUser)
 router.post('/cart', content('application/json'), auth.jwt, addCart)
