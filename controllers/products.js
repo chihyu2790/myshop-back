@@ -57,7 +57,7 @@ export const getProduct = async (req, res) => {
 
 export const getTypeProducts = async (req, res) => {
   try {
-    const result = await products.find({ color: req.body.color })
+    const result = await products.find({ classify: req.body.classify, sell: true })
     console.log(result)
     res.status(200).send({ success: true, message: '', result })
   } catch (error) {
