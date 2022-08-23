@@ -206,6 +206,7 @@ export const editUsers = async (req, res) => {
 }
 
 export const editItemsCart = async (req, res) => {
+  console.log('in editItemsCart')
   try {
     await users.findOneAndUpdate(
       { _id: req.user._id, 'cart.product': req.body.product, 'cart.color': req.body.color, 'cart.size': req.body.size },

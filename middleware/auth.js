@@ -24,7 +24,7 @@ export const jwt = (req, res, next) => {
     req.user = data.user
     req.token = data.token
     req.role = data.role
-    // console.log(req.user)
+    console.log('準備進下一個controller')
     next()
   })(req, res, next)
 }
