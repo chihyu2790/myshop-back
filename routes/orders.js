@@ -19,6 +19,6 @@ router.get('/', auth.jwt, getMyOrders)
 router.get('/all', auth.jwt, admin, getAllOrders)
 router.get('/:id', auth.jwt, getOrder)
 router.delete('/:id', auth.jwt, admin, deleteOrder)
-router.patch('/:id', content('application/json'), auth.jwt, editOrder)
+router.patch('/:id', content('application/json'), auth.jwt, admin, editOrder)
 
 export default router

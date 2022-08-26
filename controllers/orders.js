@@ -67,6 +67,7 @@ export const editOrder = async (req, res) => {
       {
         $set: {
           // $ 代表符合陣列搜尋條件的索引
+          // 如果調成同樣
           getname: req.body.getname,
           getaddress: req.body.getaddress,
           getemail: req.body.getemail,

@@ -56,12 +56,10 @@ export const editStaff = async (req, res) => {
     const data = {
       name: req.body.name,
       sex: req.body.sex,
-      avatar: req.body.avatar,
       description: req.body.description,
       height: req.body.height,
       stores: req.body.stores
     }
-
     if (req.file) data.avatar = req.file.path
     const result = await staffs.findByIdAndUpdate(req.user._id, data, { new: true })
     res.status(200).send({ success: true, message: '', result })

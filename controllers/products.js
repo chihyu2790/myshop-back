@@ -82,7 +82,7 @@ export const editProduct = async (req, res) => {
       // image: req.files?.map(file => {
       //   return file.path
       // }) || [],
-      category: req.body.category,
+      // category: req.body.category,
       color: req.body.color,
       size: req.body.size,
       classify: req.body.classify
