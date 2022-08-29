@@ -9,7 +9,8 @@ import {
   getMyStylings,
   getAllStylings,
   getStyling,
-  deleteStyling
+  deleteStyling,
+  getStaffStylings
 } from '../controllers/stylings.js'
 
 const router = express.Router()
@@ -17,6 +18,7 @@ const router = express.Router()
 router.post('/', content('multipart/form-data'), auth.jwt, role(2), uploadStylings, createStylings)
 router.get('/', auth.jwt, role(2), getMyStylings)
 router.get('/all', getAllStylings)
+router.get('/clerk/:id', getStaffStylings)
 router.get('/:id', getStyling)
 router.delete('/:id', auth.jwt, role(2), deleteStyling)
 

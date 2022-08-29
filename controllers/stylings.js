@@ -40,6 +40,15 @@ export const getMyStylings = async (req, res) => {
   }
 }
 
+export const getStaffStylings = async (req, res) => {
+  try {
+    const result = await stylings.find({ staff: req.params.id }).populate('products.product')
+    res.status(200).send({ success: true, message: '', result })
+  } catch (error) {
+    res.status(500).send({ success: false, message: '伺服器錯誤' })
+  }
+}
+
 export const getAllStylings = async (req, res) => {
   try {
     // .populate('user', 'account')
